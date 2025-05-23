@@ -18,6 +18,13 @@ async def get_tasks(project_id: Optional[str] = None):
     return tasks
 
 
+@mcp.tool()
+async def get_active_projects():
+    projects = await todoist_client.get_active_projects()
+    logging.info(projects)
+    return projects
+
+
 def main():
     mcp.run()
 
